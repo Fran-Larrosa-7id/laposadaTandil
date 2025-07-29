@@ -30,8 +30,8 @@
   <div *ngIf="menuOpen"
     class="md:hidden bg-background border-t border-border px-6 py-4 flex flex-col gap-4 text-text font-medium"
     data-aos="fade-right">
-    <a href="#galeria" (click)="toggleMenu()">Galería</a>
     <a href="#lugar" (click)="toggleMenu()">El Lugar</a>
+    <a href="#galeria" (click)="toggleMenu()">Galería</a>
     <a href="#habitaciones" (click)="toggleMenu()">Habitaciones</a>
     <a href="#deportes" (click)="toggleMenu()">Deportes</a>
     <a href="#sabores" (click)="toggleMenu()">Sabores</a>
@@ -82,9 +82,7 @@
     data-aos-delay="100">
     @for (servicio of servicios; track $index) {
     <div class="flex flex-col items-center gap-2">
-      <img [src]="servicio.icon" [alt]="servicio.nombre"
-        class="max-w-[5rem] max-h-[5rem] lugar_icons object-contain" />
-      <span class="text-sm">{{ servicio.nombre }}</span>
+      <img [src]="servicio.icon" [alt]="servicio.nombre" class="max-w-[5rem] max-h-[5rem] lugar_icons object-contain" />
     </div>
     }
   </div>
@@ -98,5 +96,42 @@
       Contactanos
     </a>
   </div>
+
+</section>
+
+<!-- Galeria -->
+<section id="galeria" class="py-16 px-4 bg-background text-text">
+  <div class="max-w-7xl mx-auto text-center mb-12" data-aos="fade-up">
+    <h2 class="text-3xl md:text-4xl font-bold text-main mb-4">Galería</h2>
+    <p class="text-lg">Explorá la belleza natural y los espacios de nuestra posada.</p>
+  </div>
+
+  <swiper-container slides-per-view="1" loop="true" autoplay-delay="3000" space-between="20" speed="500"
+    breakpoints='{"768":{"slidesPerView":2},"1024":{"slidesPerView":3}}' class="block w-full max-w-6xl mx-auto px-4">
+    <swiper-slide *ngFor="let imagen of imagenes">
+      <div data-aos="zoom-in" class="rounded-xl overflow-hidden shadow-lg h-[50vh] cursor-pointer group"
+        (click)="abrirLightbox(imagen)">
+        <img [src]="imagen" alt="Foto galería"
+          class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+      </div>
+    </swiper-slide>
+  </swiper-container>
+
+  <!-- Lightbox -->
+  @if(imagenSeleccionada) {
+    <div class="fixed inset-0 bg-black/90 backdrop-blur-sm z-[9999] flex items-center justify-center"
+      (click)="cerrarLightbox()" (keydown.escape)="cerrarLightbox()" tabindex="0">
+      <button class="absolute left-4 text-white text-4xl hover:text-main transition z-[9999]" (click)="anterior($event)">
+        ‹
+      </button>
+
+      <img [src]="imagenSeleccionada" alt="Imagen fullscreen" class="max-w-[90vw] max-h-[90vh] rounded-xl shadow-xl"
+        data-aos="zoom-in" />
+
+      <button class="absolute right-4 text-white text-4xl hover:text-main transition" (click)="siguiente($event)">
+        ›
+      </button>
+    </div>
+  }
 
 </section>

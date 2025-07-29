@@ -27,7 +27,9 @@
     "@angular/platform-browser": "^20.0.0",
     "@angular/router": "^20.0.0",
     "aos": "^2.3.4",
+    "basiclightbox": "^5.0.4",
     "rxjs": "~7.8.0",
+    "swiper": "^11.2.10",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -35,6 +37,7 @@
     "@angular/cli": "^20.0.4",
     "@angular/compiler-cli": "^20.0.0",
     "@types/aos": "^3.0.7",
+    "@types/basiclightbox": "^5.0.4",
     "@types/jasmine": "~5.1.0",
     "autoprefixer": "^10.4.21",
     "jasmine-core": "~5.7.0",

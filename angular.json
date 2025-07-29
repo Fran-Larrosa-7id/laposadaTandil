@@ -25,6 +25,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/basiclightbox/dist/basicLightbox.min.css",
+              "node_modules/swiper/swiper-bundle.min.css",
               "node_modules/aos/dist/aos.css",
               "src/styles.scss"
             ]
@@ -78,6 +80,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/basiclightbox/dist/basicLightbox.min.css",
+              "node_modules/swiper/swiper-bundle.min.css",
               "node_modules/aos/dist/aos.css",
               "src/styles.scss"
             ]
