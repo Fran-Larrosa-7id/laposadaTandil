@@ -99,6 +99,13 @@
 
 </section>
 
+<div class="w-full flex justify-center items-center gap-4 my-16">
+  <div class="w-16 h-[2px] bg-border"></div>
+  <i class="fas fa-image text-main text-xl"></i>
+  <div class="w-16 h-[2px] bg-border"></div>
+</div>
+
+
 <!-- Galeria -->
 <section id="galeria" class="py-16 px-4 bg-background text-text">
   <div class="max-w-7xl mx-auto text-center mb-12" data-aos="fade-up">
@@ -119,19 +126,74 @@
 
   <!-- Lightbox -->
   @if(imagenSeleccionada) {
-    <div class="fixed inset-0 bg-black/90 backdrop-blur-sm z-[9999] flex items-center justify-center"
-      (click)="cerrarLightbox()" (keydown.escape)="cerrarLightbox()" tabindex="0">
-      <button class="absolute left-4 text-white text-4xl hover:text-main transition z-[9999]" (click)="anterior($event)">
-        ‹
-      </button>
+  <div class="fixed inset-0 bg-black/90 backdrop-blur-sm z-[9999] flex items-center justify-center"
+    (click)="cerrarLightbox()" (keydown.escape)="cerrarLightbox()" tabindex="0">
+    <button class="absolute left-4 text-white text-4xl hover:text-main transition z-[9999]" (click)="anterior($event)">
+      ‹
+    </button>
 
-      <img [src]="imagenSeleccionada" alt="Imagen fullscreen" class="max-w-[90vw] max-h-[90vh] rounded-xl shadow-xl"
-        data-aos="zoom-in" />
+    <img [src]="imagenSeleccionada" alt="Imagen fullscreen" class="max-w-[90vw] max-h-[90vh] rounded-xl shadow-xl"
+      data-aos="zoom-in" />
 
-      <button class="absolute right-4 text-white text-4xl hover:text-main transition" (click)="siguiente($event)">
-        ›
-      </button>
-    </div>
+    <button class="absolute right-4 text-white text-4xl hover:text-main transition" (click)="siguiente($event)">
+      ›
+    </button>
+  </div>
   }
 
+</section>
+<div class="w-full flex justify-center items-center gap-4 my-16">
+  <div class="w-16 h-[2px] bg-border"></div>
+  <i class="fas fa-bed text-main text-xl"></i>
+  <div class="w-16 h-[2px] bg-border"></div>
+</div>
+
+<section id="habitaciones" class="bg-background py-20 px-6 text-text">
+  <div class="max-w-7xl mx-auto" data-aos="fade-up">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">Habitaciones</h2>
+    <p class="text-center text-lg mb-12">
+      Descubrí nuestras opciones de alojamiento diseñadas para brindarte el máximo confort.
+    </p>
+
+    <!-- Tabs de habitaciones -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      @for (h of habitaciones; track $index) {
+      <button (click)="seleccionarHabitacion(h)" [class.bg-main]="habitacionSeleccionada() === h"
+        [class.text-white]="habitacionSeleccionada() === h"
+        class="px-4 py-2 rounded-full border border-main text-main hover:bg-main hover:text-white transition">
+        {{ h.nombre }}
+      </button>
+      }
+    </div>
+
+    <!-- Contenido de la habitación seleccionada -->
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+      <!-- Swiper de imágenes -->
+      <swiper-container slides-per-view="1" loop="true" autoplay-delay="4000" space-between="20" class="block w-full">
+        @for (img of habitacionSeleccionada().imagenes; track $index) {
+        <swiper-slide>
+          <img [src]="img" alt="Imagen habitación"
+            class="rounded-xl w-full h-[70vh] object-cover shadow-md cursor-pointer hover:scale-[1.02] transition"
+            (click)="abrirLightbox(img)" />
+        </swiper-slide>
+        }
+      </swiper-container>
+
+      <!-- Descripción -->
+      <div>
+        <h3 class="text-2xl font-semibold mb-4">{{ habitacionSeleccionada().nombre }}</h3>
+        <ul class="space-y-2 text-base">
+          @for (item of habitacionSeleccionada().items; track $index) {
+          <li class="flex items-start gap-2">
+            <i class="fas fa-check-circle text-main mt-[2px]"></i>
+            <span>{{ item }}</span>
+          </li>
+          }
+        </ul>
+        <button class="mt-6 bg-main hover:bg-hover text-white font-semibold py-2 px-6 rounded-xl shadow transition">
+          ¡Reservar esta habitación!
+        </button>
+      </div>
+    </div>
+  </div>
 </section>

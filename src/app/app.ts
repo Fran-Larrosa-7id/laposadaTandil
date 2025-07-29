@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, signal } from '@angular/core';
 import AOS from 'aos';
 import * as basicLightbox from 'basiclightbox';
+import { Habitacion, HABITACIONES } from './habitaciones.data';
 @Component({
   selector: 'app-root',
   imports: [CommonModule],
@@ -70,11 +71,14 @@ export class App implements OnInit {
     'assets/deportes/deportes_04.jpg',
     'assets/deportes/deportes_05.jpg',
     'assets/deportes/deportes_06.jpg',
-    'assets/deportes/deportes_07.jpg',  
+    'assets/deportes/deportes_07.jpg',
   ];
   menuOpen = false;
   imagenSeleccionada: string | null = null;
   indexActual: number = 0;
+  habitaciones = HABITACIONES;
+  habitacionSeleccionada = signal<Habitacion>(this.habitaciones[0]);
+
 
 
   ngOnInit(): void {
@@ -96,6 +100,11 @@ export class App implements OnInit {
     }
   }
 
+  seleccionarHabitacion(h: Habitacion) {
+    this.habitacionSeleccionada.set(h);
+  }
+
+  
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
