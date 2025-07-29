@@ -43,35 +43,60 @@
 
 
 <!-- Hero -->
-<section id="inicio"
-  class="min-h-screen flex items-center justify-center bg-cover bg-center px-6 pt-32 text-center text-text"
-  style="background-image: url('assets/img/hero.jpg')">
-  <div data-aos="fade-up" class="bg-white/80 backdrop-blur-lg p-10 rounded-2xl shadow-xl max-w-2xl">
-    <h1 class="text-4xl md:text-6xl font-bold text-main mb-4">
-      Bienvenidos a La Protegida
+<section id="inicio" class="relative min-h-screen flex items-center justify-center bg-cover bg-center text-white"
+  style="background-image: url('assets/slider_lugar_1.jpg');">
+  <!-- Overlay oscuro para legibilidad -->
+  <div class="absolute inset-0 bg-black/30 backdrop-blur-sm z-0"></div>
+
+  <!-- Contenido centrado -->
+  <div class="relative z-10 text-center max-w-2xl px-6" data-aos="zoom-in">
+    <img src="assets/logo.png" alt="Logo La Protegida" class="mx-auto mb-6 w-26 md:w-[350px]" />
+    <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+      La Protegida
     </h1>
-    <p class="text-lg md:text-xl text-text">
-      Un lugar de descanso y naturaleza en Tandil, Argentina.
+    <p class="mt-4 text-lg md:text-xl drop-shadow-md">
+      Posada en Tandil – Naturaleza, confort y descanso
     </p>
   </div>
 </section>
 
+<!-- El Lugar -->
 <section id="lugar" class="py-24 px-6 bg-background text-text">
-  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-
-    <!-- Imagen -->
-    <div data-aos="fade-right">
-      <img src="assets/img/el-lugar.jpg" alt="Imagen del lugar" class="w-full rounded-2xl shadow-lg" />
+  <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
+    <!-- Estrellas -->
+    <div class="text-yellow-400 text-2xl mb-4 flex justify-center">
+      <img class="w-[200px]" src="assets/stars.png" alt="Estrella">
     </div>
 
-    <!-- Texto -->
-    <div data-aos="fade-left">
-      <h2 class="text-3xl md:text-4xl font-bold text-main mb-4">El Lugar</h2>
-      <p class="text-lg leading-relaxed text-text">
-        Ubicada en plena naturaleza serrana de Tandil, La Protegida es un refugio para desconectarte del mundo. Rodeada
-        de árboles, paz y aire puro, nuestra posada te invita a vivir una experiencia única de descanso y armonía.
-      </p>
-    </div>
+    <h2 class="text-3xl md:text-4xl font-bold text-main mb-6">Descubrí la magia del lugar</h2>
 
+    <p class="text-lg leading-relaxed max-w-2xl mx-auto mb-12">
+      Creamos “La Protegida” para brindarte una experiencia única.<br />
+      Un lugar que te desconecta del estrés y te reencuentra con lo importante:<br />
+      la naturaleza, las risas, el ocio... el amor. 🌿
+    </p>
   </div>
+
+  <!-- Grid de iconos -->
+  <div class="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-center" data-aos="fade-up"
+    data-aos-delay="100">
+    @for (servicio of servicios; track $index) {
+    <div class="flex flex-col items-center gap-2">
+      <img [src]="servicio.icon" [alt]="servicio.nombre"
+        class="max-w-[5rem] max-h-[5rem] lugar_icons object-contain" />
+      <span class="text-sm">{{ servicio.nombre }}</span>
+    </div>
+    }
+  </div>
+
+  <!-- Botón Contacto -->
+  <div class="mt-16 text-center" data-aos="zoom-in" data-aos-delay="300">
+    <a href="https://api.whatsapp.com/send/?phone=5492494648585&text=Hola%2C+estaba+navegando+el+sitio+y+quisiera+saber+m%C3%A1s+sobre+la+posada&type=phone_number&app_absent=0"
+      target="_blank" rel="noopener noreferrer"
+      class="inline-flex items-center gap-3 bg-main hover:bg-hover text-white px-8 py-3 rounded-full shadow-md transition font-semibold">
+      <i class="fab fa-whatsapp text-xl"></i>
+      Contactanos
+    </a>
+  </div>
+
 </section>

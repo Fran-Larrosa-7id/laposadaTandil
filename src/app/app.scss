@@ -1,0 +1,8 @@
+.lugar_icons {
+  filter: brightness(0) saturate(100%) sepia(25%) hue-rotate(75deg) brightness(90%) contrast(90%);
+  transition: filter 0.3s ease;
+}
+
+.lugar_icons:hover {
+  filter: brightness(0) saturate(100%) sepia(25%) hue-rotate(75deg) brightness(120%) contrast(120%);
+}

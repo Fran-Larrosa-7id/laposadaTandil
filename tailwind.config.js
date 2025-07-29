@@ -15,7 +15,7 @@ module.exports = {
         hover: '#6e8b5b',       // Verde más fuerte para hover
       },
       fontFamily: {
-        sans: ['Urbanist', 'sans-serif'],
+        sans: ['sans-serif'],
       },
     },
   },
