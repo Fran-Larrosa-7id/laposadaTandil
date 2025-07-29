@@ -1,0 +1,77 @@
+<header class="bg-background fixed w-full z-50 shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-text">
+
+    <!-- Menú Hamburguesa (mobile) -->
+    <button class="md:hidden text-main text-3xl" (click)="toggleMenu()">
+      <i class="fas" [ngClass]="menuOpen ? 'fa-times' : 'fa-bars'"></i>
+    </button>
+
+    <!-- Logo central -->
+    <div class="mx-4 cursor-pointer">
+      <a href="#inicio">
+        <img src="assets/sublogo.png" alt="Logo La Protegida" class="h-16" />
+      </a>
+    </div>
+
+    <!-- Menú desktop -->
+    <nav class="hidden md:flex gap-6 font-medium">
+      <a href="#lugar" class="hover:text-main transition">El Lugar</a>
+      <a href="#galeria" class="hover:text-main transition">Galería</a>
+      <a href="#habitaciones" class="hover:text-main transition">Habitaciones</a>
+      <a href="#deportes" class="hover:text-main transition">Deportes</a>
+      <a href="#sabores" class="hover:text-main transition">Sabores</a>
+      <a href="#relax" class="hover:text-main transition">Relax</a>
+      <a href="#eventos" class="hover:text-main transition">Eventos</a>
+      <a href="#contacto" class="hover:text-main transition">Contacto</a>
+    </nav>
+  </div>
+
+  <!-- Menú Mobile -->
+  <div *ngIf="menuOpen"
+    class="md:hidden bg-background border-t border-border px-6 py-4 flex flex-col gap-4 text-text font-medium"
+    data-aos="fade-right">
+    <a href="#galeria" (click)="toggleMenu()">Galería</a>
+    <a href="#lugar" (click)="toggleMenu()">El Lugar</a>
+    <a href="#habitaciones" (click)="toggleMenu()">Habitaciones</a>
+    <a href="#deportes" (click)="toggleMenu()">Deportes</a>
+    <a href="#sabores" (click)="toggleMenu()">Sabores</a>
+    <a href="#relax" (click)="toggleMenu()">Relax</a>
+    <a href="#eventos" (click)="toggleMenu()">Eventos</a>
+    <a href="#contacto" (click)="toggleMenu()">Contacto</a>
+  </div>
+</header>
+
+
+<!-- Hero -->
+<section id="inicio"
+  class="min-h-screen flex items-center justify-center bg-cover bg-center px-6 pt-32 text-center text-text"
+  style="background-image: url('assets/img/hero.jpg')">
+  <div data-aos="fade-up" class="bg-white/80 backdrop-blur-lg p-10 rounded-2xl shadow-xl max-w-2xl">
+    <h1 class="text-4xl md:text-6xl font-bold text-main mb-4">
+      Bienvenidos a La Protegida
+    </h1>
+    <p class="text-lg md:text-xl text-text">
+      Un lugar de descanso y naturaleza en Tandil, Argentina.
+    </p>
+  </div>
+</section>
+
+<section id="lugar" class="py-24 px-6 bg-background text-text">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- Imagen -->
+    <div data-aos="fade-right">
+      <img src="assets/img/el-lugar.jpg" alt="Imagen del lugar" class="w-full rounded-2xl shadow-lg" />
+    </div>
+
+    <!-- Texto -->
+    <div data-aos="fade-left">
+      <h2 class="text-3xl md:text-4xl font-bold text-main mb-4">El Lugar</h2>
+      <p class="text-lg leading-relaxed text-text">
+        Ubicada en plena naturaleza serrana de Tandil, La Protegida es un refugio para desconectarte del mundo. Rodeada
+        de árboles, paz y aire puro, nuestra posada te invita a vivir una experiencia única de descanso y armonía.
+      </p>
+    </div>
+
+  </div>
+</section>
